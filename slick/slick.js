@@ -78,6 +78,7 @@
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 speed: 500,
+                stopAtLastSlide: false,
                 swipe: true,
                 swipeToSlide: false,
                 touchMove: true,
@@ -1077,6 +1078,7 @@
     Slick.prototype.getLeft = function(slideIndex) {
 
         var _ = this,
+            finalSlide = _.$slides.last(),
             targetLeft,
             verticalHeight,
             verticalOffset = 0,
@@ -1175,6 +1177,14 @@
 
                 targetLeft += (_.$list.width() - targetSlide.outerWidth()) / 2;
             }
+        }
+
+        if (_.options.stopAtLastSlide &&
+            targetSlide.get(0) == finalSlide.get(0)
+        ) {
+            var lastLeft = finalSlide.get(0) ? finalSlide.get(0).offsetLeft * -1 : 0;
+            var outerEdgeLimit = lastLeft - finalSlide.width() + this.$slider.width();
+            targetLeft = Math.min(Math.max(targetLeft, outerEdgeLimit), 0);
         }
 
         return targetLeft;
