@@ -5,6 +5,11 @@ slick
 
 _the last carousel you'll ever need_
 
+_except when it doesn't do the things you want it to so you have to fork the repo and build some custom functionality_
+
+#### Custom Changes from ErgonTech
+New `stopAtLastSlide` option which ensures a slider with variable width
+
 #### Demo
 
 [http://kenwheeler.github.io/slick](http://kenwheeler.github.io/slick/)
