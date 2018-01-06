@@ -1179,9 +1179,7 @@
             }
         }
 
-        if (_.options.stopAtLastSlide &&
-            targetSlide.get(0) == finalSlide.get(0)
-        ) {
+        if (_.options.stopAtLastSlide) {
             var lastLeft = finalSlide.get(0) ? finalSlide.get(0).offsetLeft * -1 : 0;
             var outerEdgeLimit = lastLeft - finalSlide.width() + this.$slider.width();
             targetLeft = Math.min(Math.max(targetLeft, outerEdgeLimit), 0);
